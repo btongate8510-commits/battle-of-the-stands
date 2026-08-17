@@ -1,0 +1,142 @@
+/* ==========================================
+   CARDS & CONTAINERS COMPONENT
+   ========================================== */
+
+/* Primary Matchup Banner & Card Layout */
+.matchup-card {
+  position: relative;
+  background-color: rgba(30, 41, 59, 0.88);
+  border-radius: 14px;
+  padding: 2rem;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.6);
+  border: 1px solid rgba(51, 65, 85, 0.8);
+  backdrop-filter: blur(8px);
+  overflow: hidden;
+}
+
+.matchup-card h2 {
+  font-size: 1.15rem;
+  color: #38bdf8;
+  margin-bottom: 1.5rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  text-shadow: 0 0 10px rgba(56, 189, 248, 0.4);
+}
+
+/* Side-by-Side Teams Layout */
+.teams-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  margin-bottom: 2rem;
+  gap: 1rem;
+}
+
+.team-card {
+  text-align: center;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.team-badge {
+  width: 115px;
+  height: 115px;
+  object-fit: contain;
+  margin-bottom: 0.85rem;
+  border-radius: 50%;
+  background: rgba(15, 23, 42, 0.85);
+  padding: 8px;
+  border: 2px solid #334155;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.6);
+  transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.team-badge:hover {
+  transform: translateY(-4px) scale(1.04);
+  border-color: #38bdf8;
+  box-shadow: 0 0 25px rgba(56, 189, 248, 0.4);
+}
+
+.team-name {
+  font-size: 1.8rem;
+  font-weight: 900;
+  letter-spacing: 1px;
+  color: #ffffff;
+}
+
+.school-label {
+  font-size: 0.875rem;
+  color: #94a3b8;
+  margin-bottom: 1.2rem;
+}
+
+/* Versus Divider Accent */
+.vs-divider {
+  font-size: 1.6rem;
+  font-weight: 900;
+  color: #f59e0b;
+  padding: 0 1rem;
+  text-shadow: 0 0 12px rgba(245, 158, 11, 0.6);
+  user-select: none;
+}
+
+/* Action Buttons */
+.vote-btn {
+  border: none;
+  padding: 0.8rem 1.6rem;
+  font-weight: 800;
+  font-size: 0.85rem;
+  border-radius: 8px;
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
+}
+
+.vote-btn:hover {
+  transform: translateY(-2px);
+  filter: brightness(110%);
+}
+
+.tiger-btn {
+  background-color: #461d7c;
+  color: #fdd023;
+  box-shadow: 0 4px 18px rgba(70, 29, 124, 0.6);
+}
+
+.clemson-btn {
+  background-color: #f56600;
+  color: #ffffff;
+  box-shadow: 0 4px 18px rgba(245, 102, 0, 0.6);
+}
+
+/* Campus Leaderboard Card */
+.leaderboard-card {
+  margin-top: 2rem;
+  background-color: rgba(30, 41, 59, 0.88);
+  border-radius: 14px;
+  padding: 1.75rem 2rem;
+  border: 1px solid rgba(51, 65, 85, 0.8);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(8px);
+}
+
+.leaderboard-card h3 {
+  font-size: 1.1rem;
+  color: #f8fafc;
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* Campus Ambassador Box */
+.ambassador-box {
+  background-color: rgba(30, 41, 59, 0.88);
+  border-radius: 14px;
+  padding: 1.75rem;
+  border: 1px solid rgba(51, 65, 85, 0.8);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(8px);
+}

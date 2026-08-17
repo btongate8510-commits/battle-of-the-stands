@@ -1,0 +1,1045 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Battle of the Stands</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #080b12;
+            color: #ffffff;
+            min-height: 100vh;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        /* =========================
+           HEADER
+        ========================= */
+
+        header {
+            background: #10151f;
+            border-bottom: 2px solid #263142;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: auto;
+            min-height: 72px;
+            padding: 0 25px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 25px;
+        }
+
+        .brand {
+            font-size: 28px;
+            font-weight: 900;
+            letter-spacing: 1px;
+            white-space: nowrap;
+        }
+
+        .brand span {
+            color: #f5c400;
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            gap: 25px;
+        }
+
+        nav a {
+            font-size: 14px;
+            font-weight: bold;
+            color: #d9dee7;
+            transition: 0.2s;
+        }
+
+        nav a:hover {
+            color: #f5c400;
+        }
+
+        .login-btn {
+            border: 1px solid #f5c400;
+            padding: 9px 16px;
+            border-radius: 5px;
+            color: #f5c400;
+        }
+
+        /* =========================
+           HERO
+        ========================= */
+
+        .hero {
+            min-height: 500px;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+
+            background:
+                linear-gradient(
+                    rgba(5, 8, 14, 0.55),
+                    rgba(5, 8, 14, 0.92)
+                ),
+                radial-gradient(
+                    circle at center,
+                    #263b59 0%,
+                    #111827 45%,
+                    #05070c 100%
+                );
+        }
+
+        .hero-content {
+            width: 100%;
+            max-width: 1000px;
+            padding: 60px 25px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-kicker {
+            color: #f5c400;
+            font-size: 16px;
+            font-weight: bold;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            margin-bottom: 15px;
+        }
+
+        .hero h1 {
+            font-size: clamp(55px, 9vw, 110px);
+            line-height: 0.9;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: -3px;
+            text-shadow: 0 8px 25px rgba(0,0,0,0.65);
+        }
+
+        .hero h1 span {
+            color: #f5c400;
+        }
+
+        .hero-subtitle {
+            margin-top: 25px;
+            color: #d8dee8;
+            font-size: 19px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .vote-btn {
+            display: inline-block;
+            margin-top: 30px;
+            background: #f5c400;
+            color: #080b12;
+            font-size: 18px;
+            font-weight: 900;
+            padding: 15px 38px;
+            border-radius: 5px;
+            text-transform: uppercase;
+            box-shadow: 0 7px 20px rgba(245,196,0,0.25);
+            transition: 0.2s;
+        }
+
+        .vote-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(245,196,0,0.4);
+        }
+
+        /* =========================
+           COUNTDOWN
+        ========================= */
+
+        .countdown-section {
+            background: #0e131d;
+            border-bottom: 1px solid #202938;
+            padding: 25px 20px;
+            text-align: center;
+        }
+
+        .countdown-title {
+            font-size: 12px;
+            color: #9da7b7;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 8px;
+        }
+
+        #countdown {
+            font-size: clamp(28px, 5vw, 48px);
+            font-weight: 900;
+            letter-spacing: 3px;
+        }
+
+        /* =========================
+           MAIN
+        ========================= */
+
+        main {
+            max-width: 1400px;
+            margin: auto;
+            padding: 55px 25px;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 34px;
+            text-transform: uppercase;
+            font-weight: 900;
+            margin-bottom: 35px;
+        }
+
+        .section-title span {
+            color: #f5c400;
+        }
+
+        /* =========================
+           FEATURED MATCHUP
+        ========================= */
+
+        .featured {
+            background: linear-gradient(135deg, #111927, #0b1019);
+            border: 1px solid #283447;
+            border-radius: 12px;
+            padding: 40px;
+            margin-bottom: 60px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.25);
+        }
+
+        .featured-label {
+            text-align: center;
+            color: #f5c400;
+            font-size: 13px;
+            font-weight: 900;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 30px;
+        }
+
+        .matchup {
+            display: grid;
+            grid-template-columns: 1fr auto 1fr;
+            align-items: center;
+            gap: 30px;
+            text-align: center;
+        }
+
+        .team {
+            padding: 20px;
+        }
+
+        .team-badge {
+            width: 135px;
+            height: 135px;
+            margin: 0 auto 20px;
+            border-radius: 50%;
+            border: 4px solid #ffffff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 32px;
+            font-weight: 900;
+            background: #461d7c;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.35);
+        }
+
+        .team.clemson .team-badge {
+            background: #f56600;
+            color: #ffffff;
+        }
+
+        .team h3 {
+            font-size: 30px;
+            text-transform: uppercase;
+        }
+
+        .team p {
+            margin-top: 5px;
+            color: #aab3c1;
+            font-size: 14px;
+        }
+
+        .vs {
+            font-size: 38px;
+            font-weight: 900;
+            color: #f5c400;
+            font-style: italic;
+        }
+
+        .matchup-vote {
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        /* =========================
+           HOW IT WORKS
+        ========================= */
+
+        .how-it-works {
+            margin-bottom: 60px;
+        }
+
+        .steps {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .step {
+            background: #111722;
+            border: 1px solid #273142;
+            border-radius: 10px;
+            padding: 30px;
+            text-align: center;
+        }
+
+        .step-number {
+            width: 50px;
+            height: 50px;
+            margin: 0 auto 20px;
+            border-radius: 50%;
+            background: #f5c400;
+            color: #080b12;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 22px;
+            font-weight: 900;
+        }
+
+        .step h3 {
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+
+        .step p {
+            color: #aeb7c5;
+            line-height: 1.6;
+            font-size: 14px;
+        }
+
+        /* =========================
+           TWO COLUMN AREA
+        ========================= */
+
+        .content-grid {
+            display: grid;
+            grid-template-columns: 1.4fr 1fr;
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+
+        .card {
+            background: #111722;
+            border: 1px solid #273142;
+            border-radius: 10px;
+            padding: 30px;
+        }
+
+        .card-title {
+            font-size: 24px;
+            font-weight: 900;
+            text-transform: uppercase;
+            margin-bottom: 25px;
+        }
+
+        .card-title span {
+            color: #f5c400;
+        }
+
+        /* =========================
+           STANDINGS
+        ========================= */
+
+        .standing-row {
+            display: grid;
+            grid-template-columns: 40px 1fr 70px;
+            align-items: center;
+            gap: 15px;
+            padding: 14px 0;
+            border-bottom: 1px solid #222c3a;
+        }
+
+        .standing-row:last-child {
+            border-bottom: none;
+        }
+
+        .rank {
+            color: #f5c400;
+            font-size: 20px;
+            font-weight: 900;
+        }
+
+        .school-name {
+            font-weight: bold;
+        }
+
+        .school-record {
+            color: #8994a5;
+            font-size: 12px;
+            margin-top: 3px;
+        }
+
+        .points {
+            text-align: right;
+            font-weight: 900;
+        }
+
+        /* =========================
+           CAMPUS AMBASSADOR
+        ========================= */
+
+        .ambassador {
+            background:
+                linear-gradient(
+                    135deg,
+                    #151d2b,
+                    #0c1119
+                );
+            border: 2px solid #f5c400;
+            border-radius: 10px;
+            padding: 30px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .ambassador::after {
+            content: "BOTS";
+            position: absolute;
+            right: -15px;
+            bottom: -25px;
+            font-size: 100px;
+            font-weight: 900;
+            color: rgba(255,255,255,0.025);
+            pointer-events: none;
+        }
+
+        .ambassador h2 {
+            font-size: 27px;
+            text-transform: uppercase;
+            margin-bottom: 12px;
+        }
+
+        .ambassador h2 span {
+            color: #f5c400;
+        }
+
+        .ambassador p {
+            color: #b7c0ce;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .apply-btn {
+            display: inline-block;
+            background: #f5c400;
+            color: #080b12;
+            font-weight: 900;
+            padding: 12px 22px;
+            border-radius: 5px;
+            text-transform: uppercase;
+            font-size: 14px;
+        }
+
+        /* =========================
+           CONFERENCES
+        ========================= */
+
+        .conference-links {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 15px;
+            margin-bottom: 60px;
+        }
+
+        .conference {
+            background: #111722;
+            border: 1px solid #273142;
+            padding: 20px 10px;
+            text-align: center;
+            border-radius: 8px;
+            font-weight: 900;
+            transition: 0.2s;
+        }
+
+        .conference:hover {
+            border-color: #f5c400;
+            transform: translateY(-2px);
+        }
+
+        /* =========================
+           FOOTER
+        ========================= */
+
+        footer {
+            background: #06080d;
+            border-top: 1px solid #202938;
+            padding: 45px 25px;
+            text-align: center;
+        }
+
+        .footer-brand {
+            font-size: 27px;
+            font-weight: 900;
+            margin-bottom: 10px;
+        }
+
+        .footer-brand span {
+            color: #f5c400;
+        }
+
+        footer p {
+            color: #7e8999;
+            font-size: 13px;
+            margin: 7px 0;
+        }
+
+        .footer-links {
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: #aeb7c4;
+            font-size: 13px;
+        }
+
+        .footer-links a:hover {
+            color: #f5c400;
+        }
+
+        /* =========================
+           RESPONSIVE
+        ========================= */
+
+        @media (max-width: 900px) {
+
+            nav {
+                gap: 12px;
+            }
+
+            nav a:not(.login-btn) {
+                display: none;
+            }
+
+            .content-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .conference-links {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 700px) {
+
+            .nav-container {
+                min-height: 60px;
+            }
+
+            .brand {
+                font-size: 22px;
+            }
+
+            .hero {
+                min-height: 430px;
+            }
+
+            .matchup {
+                grid-template-columns: 1fr;
+                gap: 10px;
+            }
+
+            .vs {
+                font-size: 28px;
+            }
+
+            .team-badge {
+                width: 105px;
+                height: 105px;
+                font-size: 25px;
+            }
+
+            .team h3 {
+                font-size: 24px;
+            }
+
+            .steps {
+                grid-template-columns: 1fr;
+            }
+
+            .featured {
+                padding: 25px 15px;
+            }
+
+            main {
+                padding: 40px 15px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- =========================
+         HEADER
+    ========================== -->
+
+    <header>
+        <div class="nav-container">
+
+            <a href="home.html" class="brand">
+                BATTLE <span>OF THE STANDS</span>
+            </a>
+
+            <nav>
+                <a href="#matchup">Featured Matchup</a>
+                <a href="#standings">Standings</a>
+                <a href="#how-it-works">How It Works</a>
+                <a href="#ambassador">Ambassadors</a>
+                <a href="#" class="login-btn">Login / Register</a>
+            </nav>
+
+        </div>
+    </header>
+
+
+    <!-- =========================
+         HERO
+    ========================== -->
+
+    <section class="hero">
+
+        <div class="hero-content">
+
+            <div class="hero-kicker">
+                College Football's Fan Battle
+            </div>
+
+            <h1>
+                Battle <span>Of</span><br>
+                The Stands
+            </h1>
+
+            <p class="hero-subtitle">
+                The games happen on Saturdays.
+                <br>
+                The conversations happen every day.
+            </p>
+
+            <a href="#matchup" class="vote-btn">
+                Vote Now
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         COUNTDOWN
+    ========================== -->
+
+    <section class="countdown-section">
+
+        <div class="countdown-title">
+            Next Battle Begins In
+        </div>
+
+        <div id="countdown">
+            Loading...
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         MAIN CONTENT
+    ========================== -->
+
+    <main>
+
+
+        <!-- FEATURED MATCHUP -->
+
+        <section id="matchup" class="featured">
+
+            <div class="featured-label">
+                Featured Matchup
+            </div>
+
+            <div class="matchup">
+
+                <div class="team">
+
+                    <div class="team-badge">
+                        LSU
+                    </div>
+
+                    <h3>LSU</h3>
+
+                    <p>Louisiana State University</p>
+
+                </div>
+
+
+                <div class="vs">
+                    VS
+                </div>
+
+
+                <div class="team clemson">
+
+                    <div class="team-badge">
+                        CU
+                    </div>
+
+                    <h3>Clemson</h3>
+
+                    <p>Clemson University</p>
+
+                </div>
+
+            </div>
+
+            <div class="matchup-vote">
+
+                <a href="#" class="vote-btn">
+                    Vote For Your Fans
+                </a>
+
+            </div>
+
+        </section>
+
+
+        <!-- HOW IT WORKS -->
+
+        <section id="how-it-works" class="how-it-works">
+
+            <h2 class="section-title">
+                How It <span>Works</span>
+            </h2>
+
+            <div class="steps">
+
+                <div class="step">
+
+                    <div class="step-number">1</div>
+
+                    <h3>Choose Your Team</h3>
+
+                    <p>
+                        Represent your school and join thousands
+                        of fans battling for bragging rights.
+                    </p>
+
+                </div>
+
+
+                <div class="step">
+
+                    <div class="step-number">2</div>
+
+                    <h3>Vote</h3>
+
+                    <p>
+                        Vote on stadium atmosphere, traditions,
+                        tailgates, bands and the overall fan experience.
+                    </p>
+
+                </div>
+
+
+                <div class="step">
+
+                    <div class="step-number">3</div>
+
+                    <h3>Climb The Rankings</h3>
+
+                    <p>
+                        Every fan vote contributes to your school's
+                        position in the Battle of the Stands rankings.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- STANDINGS + AMBASSADOR -->
+
+        <div class="content-grid">
+
+
+            <!-- TOP 5 -->
+
+            <section id="standings" class="card">
+
+                <h2 class="card-title">
+                    Top <span>5</span> Fan Standings
+                </h2>
+
+
+                <div class="standing-row">
+
+                    <div class="rank">01</div>
+
+                    <div>
+                        <div class="school-name">LSU</div>
+                        <div class="school-record">
+                            Fan Index
+                        </div>
+                    </div>
+
+                    <div class="points">
+                        98
+                    </div>
+
+                </div>
+
+
+                <div class="standing-row">
+
+                    <div class="rank">02</div>
+
+                    <div>
+                        <div class="school-name">Clemson</div>
+                        <div class="school-record">
+                            Fan Index
+                        </div>
+                    </div>
+
+                    <div class="points">
+                        96
+                    </div>
+
+                </div>
+
+
+                <div class="standing-row">
+
+                    <div class="rank">03</div>
+
+                    <div>
+                        <div class="school-name">Ohio State</div>
+                        <div class="school-record">
+                            Fan Index
+                        </div>
+                    </div>
+
+                    <div class="points">
+                        94
+                    </div>
+
+                </div>
+
+
+                <div class="standing-row">
+
+                    <div class="rank">04</div>
+
+                    <div>
+                        <div class="school-name">Texas</div>
+                        <div class="school-record">
+                            Fan Index
+                        </div>
+                    </div>
+
+                    <div class="points">
+                        92
+                    </div>
+
+                </div>
+
+
+                <div class="standing-row">
+
+                    <div class="rank">05</div>
+
+                    <div>
+                        <div class="school-name">Georgia</div>
+                        <div class="school-record">
+                            Fan Index
+                        </div>
+                    </div>
+
+                    <div class="points">
+                        90
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- CAMPUS AMBASSADOR -->
+
+            <section id="ambassador" class="ambassador">
+
+                <h2>
+                    Want to be a
+                    <span>Campus Ambassador?</span>
+                </h2>
+
+                <p>
+                    Represent Battle of the Stands on your campus,
+                    rally your fellow fans, create content and help
+                    build the ultimate college football fan community.
+                </p>
+
+                <a href="#" class="apply-btn">
+                    Apply Here
+                </a>
+
+            </section>
+
+        </div>
+
+
+        <!-- CONFERENCES -->
+
+        <section>
+
+            <h2 class="section-title">
+                Explore <span>Fanbases</span>
+            </h2>
+
+            <div class="conference-links">
+
+                <a href="#" class="conference">
+                    SEC
+                </a>
+
+                <a href="#" class="conference">
+                    Big Ten
+                </a>
+
+                <a href="#" class="conference">
+                    ACC
+                </a>
+
+                <a href="#" class="conference">
+                    Big 12
+                </a>
+
+                <a href="#" class="conference">
+                    Other
+                </a>
+
+            </div>
+
+        </section>
+
+
+    </main>
+
+
+    <!-- =========================
+         FOOTER
+    ========================== -->
+
+    <footer>
+
+        <div class="footer-brand">
+            BATTLE <span>OF THE STANDS</span>
+        </div>
+
+        <p>
+            The ultimate battle of college football fanbases.
+        </p>
+
+        <p>
+            © 2026 Battle of the Stands. All rights reserved.
+        </p>
+
+        <div class="footer-links">
+
+            <a href="#">About</a>
+            <a href="#">Contact</a>
+            <a href="#">Privacy</a>
+            <a href="#">Terms</a>
+            <a href="#">Become an Ambassador</a>
+
+        </div>
+
+    </footer>
+
+
+    <!-- =========================
+         COUNTDOWN SCRIPT
+    ========================== -->
+
+    <script>
+
+        function updateCountdown() {
+
+            const now = new Date();
+
+            // Next Saturday at noon
+            let target = new Date(now);
+
+            let daysUntilSaturday = (6 - now.getDay() + 7) % 7;
+
+            if (daysUntilSaturday === 0 && now.getHours() >= 12) {
+                daysUntilSaturday = 7;
+            }
+
+            target.setDate(now.getDate() + daysUntilSaturday);
+            target.setHours(12, 0, 0, 0);
+
+            const difference = target - now;
+
+            const days = Math.floor(
+                difference / (1000 * 60 * 60 * 24)
+            );
+
+            const hours = Math.floor(
+                (difference / (1000 * 60 * 60)) % 24
+            );
+
+            const minutes = Math.floor(
+                (difference / (1000 * 60)) % 60
+            );
+
+            const seconds = Math.floor(
+                (difference / 1000) % 60
+            );
+
+            document.getElementById("countdown").textContent =
+                `${days}D ${hours}H ${minutes}M ${seconds}S`;
+        }
+
+        updateCountdown();
+
+        setInterval(updateCountdown, 1000);
+
+    </script>
+
+</body>
+</html>

@@ -190,14 +190,14 @@
             box-shadow: 0 0 15px rgba(0, 132, 255, 0.5);
         }
 
-        /* HERO AREA WITH EXACT MOCKUP ALIGNMENT */
+        /* HERO AREA WITH UPDATED ROOT IMAGE PATHS */
         .hero-section {
             position: relative;
             width: 100%;
             background: radial-gradient(circle at center, rgba(10, 30, 63, 0.4) 0%, #030712 100%), 
-                        url('images/background/hero-stadium.png') center/cover no-repeat;
+                        url('hero-stadium.png') center/cover no-repeat;
             border-bottom: 2px solid #0055ff;
-            padding: 20px 0 0px; /* Padding bottom zero so cheerleaders sit flush on bottom border */
+            padding: 20px 0 0px; 
             display: flex;
             justify-content: center;
         }
@@ -207,22 +207,20 @@
             width: 100%;
             display: grid;
             grid-template-columns: 360px 1fr 480px;
-            align-items: flex-end; /* All 3 cheerleaders touch the exact same bottom line */
+            align-items: flex-end;
             padding: 0 20px;
             position: relative;
         }
 
-        /* UNIFORM HEIGHT & FLUSH BOTTOM FOR ALL MASCOTS */
         .mascot-img {
-            height: 340px; /* Forces all 3 cheerleaders to be identical height */
+            height: 340px;
             width: auto;
             object-fit: contain;
             filter: drop-shadow(0 10px 25px rgba(0,0,0,0.85));
-            vertical-align: bottom; /* Removes baseline gap */
+            vertical-align: bottom;
             display: block;
         }
 
-        /* LEFT DUO CONTAINER */
         .mascot-left-box {
             display: flex;
             align-items: flex-end;
@@ -234,11 +232,10 @@
         }
 
         .img-black {
-            margin-left: -70px; /* Tight overlap as seen in mockup */
+            margin-left: -70px;
             z-index: 1;
         }
 
-        /* CENTER BRAND HERO */
         .hero-center-box {
             text-align: center;
             z-index: 20;
@@ -305,10 +302,9 @@
             letter-spacing: 1px;
         }
 
-        /* RIGHT CONTAINER: CHEERLEADER + SIDE-BY-SIDE COUNTDOWN */
         .hero-right-box {
             display: flex;
-            flex-direction: row; /* Places countdown card TO THE RIGHT of the brunette */
+            flex-direction: row;
             align-items: flex-end;
             justify-content: flex-end;
             gap: 15px;
@@ -325,8 +321,8 @@
             border-radius: 6px;
             padding: 12px;
             text-align: center;
-            width: 230px; /* Fixed width to fit cleanly beside the cheerleader */
-            margin-bottom: 25px; /* Aligns with middle hero buttons */
+            width: 230px;
+            margin-bottom: 25px;
             z-index: 5;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
         }
@@ -382,7 +378,6 @@
             letter-spacing: 0.5px;
         }
 
-        /* DASHBOARD 3-COLUMN GRID */
         .dashboard-grid {
             max-width: 1400px;
             margin: 25px auto;
@@ -422,7 +417,6 @@
             text-decoration: none;
         }
 
-        /* STANDINGS LIST */
         .standings-ul {
             list-style: none;
             padding: 8px 12px;
@@ -440,7 +434,6 @@
 
         .standings-li:last-child { border-bottom: none; }
 
-        /* MATCHUP BOX & STYLIZED METALLIC "VS" */
         .matchup-inner {
             padding: 15px;
             text-align: center;
@@ -495,7 +488,6 @@
             box-shadow: 0 0 15px rgba(0, 132, 255, 0.4);
         }
 
-        /* HOW IT WORKS BANNER */
         .how-works-section {
             max-width: 1400px;
             margin: 15px auto 30px;
@@ -560,7 +552,7 @@
 
     <!-- 1. SPLASH SCREEN -->
     <section id="entry-screen">
-        <img src="images/logos/logo1.png" alt="Battle of the Stands" class="entry-logo">
+        <img src="logo1.png" alt="Battle of the Stands" class="entry-logo">
         <button id="enter-button">CLICK TO ENTER</button>
     </section>
 
@@ -568,7 +560,7 @@
     <div id="video-container">
         <button id="skip-button">SKIP INTRO</button>
         <video id="intro-video" playsinline preload="auto">
-            <source src="images/intro-animation.mp4" type="video/mp4">
+            <source src="intro-animation.mp4" type="video/mp4">
         </video>
     </div>
 
@@ -597,15 +589,15 @@
         <section class="hero-section">
             <div class="hero-wrapper">
 
-                <!-- LEFT CHEERLEADER DUO (EXACT SAME HEIGHT) -->
+                <!-- LEFT CHEERLEADER DUO -->
                 <div class="mascot-left-box">
-                    <img src="images/mascots/cheerleader_left.png" alt="Blonde Cheerleader" class="mascot-img img-blonde">
-                    <img src="images/mascots/cheerleader_center.png" alt="Black Cheerleader" class="mascot-img img-black">
+                    <img src="cheerleader_left.png" alt="Blonde Cheerleader" class="mascot-img img-blonde">
+                    <img src="cheerleader_center.png" alt="Black Cheerleader" class="mascot-img img-black">
                 </div>
 
                 <!-- CENTER LOGO & BUTTONS -->
                 <div class="hero-center-box">
-                    <img src="images/logos/logo1.png" alt="Battle of the Stands" class="hero-logo">
+                    <img src="logo1.png" alt="Battle of the Stands" class="hero-logo">
                     <br>
                     <div class="ribbon-tagline">THE ULTIMATE FAN SHOWDOWN!</div>
                     <div class="sub-bullets">
@@ -619,9 +611,9 @@
                     </div>
                 </div>
 
-                <!-- RIGHT CHEERLEADER + SIDE-BY-SIDE COUNTDOWN CARD -->
+                <!-- RIGHT CHEERLEADER + COUNTDOWN CARD -->
                 <div class="hero-right-box">
-                    <img src="images/mascots/cheerleader_right.png" alt="Brunette Cheerleader" class="mascot-img img-brunette">
+                    <img src="cheerleader_right.png" alt="Brunette Cheerleader" class="mascot-img img-brunette">
                     <div class="countdown-container">
                         <h3 id="week-header-label">WEEK 7</h3>
                         <p>VOTING ENDS IN:</p>
@@ -661,13 +653,13 @@
                     <div class="matchup-teams">
                         <div>
                             <div style="font-size:0.6rem; color:#64748b; font-weight:900;">AWAY</div>
-                            <img src="images/logos/LSU.png" alt="LSU Tigers" class="badge-img" id="away-badge" onclick="voteForTeam('away')">
+                            <img src="LSU.png" alt="LSU Tigers" class="badge-img" id="away-badge" onclick="voteForTeam('away')">
                             <div style="font-size:0.75rem; color:#38bdf8; font-weight:900;" id="away-vote-display">128,760 VOTES</div>
                         </div>
                         <div class="vs-tag">VS</div>
                         <div>
                             <div style="font-size:0.6rem; color:#64748b; font-weight:900;">HOME</div>
-                            <img src="images/logos/Clemson.png" alt="Clemson Tigers" class="badge-img" id="home-badge" onclick="voteForTeam('home')">
+                            <img src="Clemson.png" alt="Clemson Tigers" class="badge-img" id="home-badge" onclick="voteForTeam('home')">
                             <div style="font-size:0.75rem; color:#38bdf8; font-weight:900;" id="home-vote-display">105,430 VOTES</div>
                         </div>
                     </div>
@@ -741,9 +733,9 @@
         // Master Voter State
         let voterData = [
             { id: "georgia", name: "GEORGIA BULLDOGS", votes: 128764 },
-            { id: "lsu", name: "LSU TIGERS", votes: 128760, logo: "images/logos/LSU.png" },
+            { id: "lsu", name: "LSU TIGERS", votes: 128760, logo: "LSU.png" },
             { id: "ohio_state", name: "OHIO STATE BUCKEYES", votes: 115432 },
-            { id: "clemson", name: "CLEMSON TIGERS", votes: 105430, logo: "images/logos/Clemson.png" },
+            { id: "clemson", name: "CLEMSON TIGERS", votes: 105430, logo: "Clemson.png" },
             { id: "michigan", name: "MICHIGAN WOLVERINES", votes: 101876 },
             { id: "oregon", name: "OREGON DUCKS", votes: 89213 },
             { id: "penn_state", name: "PENN STATE NITTANY LIONS", votes: 76891 }

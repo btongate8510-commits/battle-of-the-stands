@@ -1,0 +1,104 @@
+/* ==========================================
+   HOMEPAGE & ANIMATION FX STYLES
+   ========================================== */
+
+/* Cheerleader / Spirit FX Overlay Container */
+.cheerleader-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 10;
+  overflow: hidden;
+  border-radius: 14px;
+}
+
+/* Pulse animation for active team badges */
+.pulse-anim {
+  animation: badgeGlow 3s infinite alternate;
+}
+
+@keyframes badgeGlow {
+  0% {
+    box-shadow: 0 0 10px rgba(56, 189, 248, 0.3);
+  }
+  100% {
+    box-shadow: 0 0 22px rgba(56, 189, 248, 0.8), 0 0 35px rgba(0, 102, 255, 0.5);
+  }
+}
+
+/* Leaderboard & Spirit Rankings List Styling */
+.rankings-container {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-top: 1rem;
+}
+
+.ranking-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #0f172a;
+  padding: 0.85rem 1.25rem;
+  border-radius: 8px;
+  border: 1px solid #1e293b;
+  transition: transform 0.2s, border-color 0.2s;
+}
+
+.ranking-item:hover {
+  transform: translateX(4px);
+  border-color: #38bdf8;
+}
+
+.ranking-info {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.rank-number {
+  font-weight: 900;
+  font-size: 1.1rem;
+  color: #f59e0b;
+  min-width: 28px;
+}
+
+.rank-team-name {
+  font-weight: 700;
+  font-size: 1rem;
+  color: #f8fafc;
+}
+
+.rank-score {
+  font-weight: 800;
+  font-size: 0.95rem;
+  color: #38bdf8;
+  background: rgba(56, 189, 248, 0.1);
+  padding: 4px 12px;
+  border-radius: 20px;
+  border: 1px solid rgba(56, 189, 248, 0.3);
+}
+
+/* Floating Confetti / Cheer FX Particles */
+.spirit-particle {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  animation: floatUp 2.5s ease-out forwards;
+  opacity: 0.9;
+}
+
+@keyframes floatUp {
+  0% {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-120px) scale(0.3);
+    opacity: 0;
+  }
+}

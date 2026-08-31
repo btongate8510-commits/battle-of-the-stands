@@ -225,13 +225,9 @@
          * send the visitor to the homepage.
          */
 
-        introVideo.addEventListener("ended", function () {
-
-            window.location.href = "home.html";
-
-        });
-
-    </script>
-
+introVideo.addEventListener("ended", function () {
+    document.getElementById("video-container").style.display = "none";
+    document.getElementById("main-homepage").style.display = "block";
+});
 </body>
 </html>

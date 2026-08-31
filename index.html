@@ -3,9 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>Battle of the Stands</title>
-
     <style>
         * {
             box-sizing: border-box;
@@ -26,7 +24,7 @@
         }
 
         /* ==============================
-           ENTRY SCREEN
+            ENTRY SCREEN
         ============================== */
 
         #entry-screen {
@@ -35,18 +33,13 @@
             width: 100%;
             height: 100%;
             background: #000 url("entry-background.png") center center / cover no-repeat;
-
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
-
             z-index: 10;
-
             transition: opacity 0.8s ease;
         }
-
-        /* Dark overlay */
 
         #entry-screen::before {
             content: "";
@@ -56,48 +49,34 @@
             z-index: -1;
         }
 
-        /* Logo */
-
         .entry-logo {
             width: min(55vw, 520px);
             max-height: 55vh;
             object-fit: contain;
-
             filter:
                 drop-shadow(0 0 25px rgba(0, 102, 255, 0.35))
                 drop-shadow(0 15px 30px rgba(0, 0, 0, 0.7));
-
             margin-bottom: 35px;
         }
-
-        /* Click to Enter */
 
         #enter-button {
             appearance: none;
             border: none;
-
             padding: 18px 70px;
-
             background: linear-gradient(
                 180deg,
                 #ffd84a 0%,
                 #f5b800 100%
             );
-
             color: #111;
-
             font-size: clamp(1.1rem, 2vw, 1.7rem);
             font-weight: 900;
             letter-spacing: 2px;
-
             border-radius: 8px;
-
             cursor: pointer;
-
             box-shadow:
                 0 0 20px rgba(255, 200, 0, 0.45),
                 0 8px 20px rgba(0, 0, 0, 0.5);
-
             transition:
                 transform 0.2s ease,
                 box-shadow 0.2s ease;
@@ -105,7 +84,6 @@
 
         #enter-button:hover {
             transform: translateY(-3px) scale(1.03);
-
             box-shadow:
                 0 0 30px rgba(255, 210, 0, 0.65),
                 0 12px 25px rgba(0, 0, 0, 0.6);
@@ -116,31 +94,56 @@
         }
 
         /* ==============================
-           INTRO VIDEO
+            INTRO VIDEO & SKIP BUTTON
         ============================== */
 
         #intro-video {
             position: fixed;
             inset: 0;
-
             width: 100%;
             height: 100%;
-
             object-fit: cover;
-
             background: #000;
-
             display: none;
-
             z-index: 20;
         }
 
+        #skip-button {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 30;
+            padding: 10px 20px;
+            background: rgba(0, 0, 0, 0.6);
+            color: #fff;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
+            display: none;
+        }
+
+        #skip-button:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
         /* ==============================
-           MOBILE
+            MAIN HOMEPAGE CONTAINER
+        ============================== */
+
+        #main-homepage {
+            display: none;
+            width: 100%;
+            height: 100%;
+            color: #fff;
+            padding: 40px;
+        }
+
+        /* ==============================
+            MOBILE
         ============================== */
 
         @media (max-width: 600px) {
-
             .entry-logo {
                 width: 75vw;
                 margin-bottom: 25px;
@@ -156,78 +159,61 @@
 
 <body>
 
-    <!-- =================================
-         CLICK TO ENTER SCREEN
-    ================================== -->
-
+    <!-- CLICK TO ENTER SCREEN -->
     <section id="entry-screen">
-
         <img
             src="logo1.png"
             alt="Battle of the Stands"
             class="entry-logo"
         >
-
         <button id="enter-button">
             CLICK TO ENTER
         </button>
-
     </section>
 
+    <!-- INTRO ANIMATION & SKIP -->
+    <video
+        id="intro-video"
+        playsinline
+        preload="auto"
+        muted>
+        <source src="intro-animation.mp4" type="video/mp4">
+    </video>
 
-    <!-- =================================
-         INTRO ANIMATION
-    ================================== -->
+    <button id="skip-button">SKIP INTRO</button>
 
-   <video
-    id="intro-video"
-    playsinline
-    preload="auto"
-    muted>
-    <source src="intro-animation.mp4" type="video/mp4">
-</video>
+    <!-- MAIN HOMEPAGE CONTENT -->
+    <div id="main-homepage">
+        <h1>Welcome to Battle of the Stands</h1>
+    </div>
 
     <script>
-
         const entryScreen = document.getElementById("entry-screen");
         const enterButton = document.getElementById("enter-button");
         const introVideo = document.getElementById("intro-video");
-
+        const skipButton = document.getElementById("skip-button");
+        const mainHomepage = document.getElementById("main-homepage");
 
         enterButton.addEventListener("click", function () {
-
-            /*
-             * The visitor has now interacted with
-             * the website, so the browser should
-             * allow the video to play with sound.
-             */
-
             entryScreen.style.opacity = "0";
 
             setTimeout(function () {
-
                 entryScreen.style.display = "none";
-
                 introVideo.style.display = "block";
-
+                skipButton.style.display = "block";
                 introVideo.currentTime = 0;
-
                 introVideo.play();
-
             }, 800);
-
         });
 
+        function finishIntro() {
+            introVideo.style.display = "none";
+            skipButton.style.display = "none";
+            mainHomepage.style.display = "block";
+        }
 
-        /*
-         * When the animation finishes,
-         * send the visitor to the homepage.
-         */
-
-
-        introVideo.addEventListener("ended", function () {
-    introVideo.style.display = "none";
-});
-</script> <!-- Add this closing tag -->
+        introVideo.addEventListener("ended", finishIntro);
+        skipButton.addEventListener("click", finishIntro);
+    </script>
 </body>
 </html>

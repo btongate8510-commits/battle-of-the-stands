@@ -24,7 +24,7 @@
         #entry-screen {
             position: fixed;
             inset: 0;
-            background: #000 url("images/background/entry-background.png") center center / cover no-repeat;
+            background: #000 url("entry-background.png") center center / cover no-repeat;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -173,8 +173,8 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 30px 50px 10px;
-            background: url('images/background/hero-stadium.png') center/cover no-repeat;
+            padding: 20px 40px 10px;
+            background: url('hero-stadium.png') center/cover no-repeat;
             border-bottom: 3px solid #0055ff;
         }
 
@@ -191,8 +191,25 @@
             z-index: 2;
         }
 
-        .cheerleader-side {
-            width: 260px;
+        .hero-left-group {
+            display: flex;
+            align-items: flex-end;
+            gap: -15px;
+        }
+
+        .cheerleader-left-img {
+            width: 190px;
+            height: auto;
+        }
+
+        .cheerleader-center-img {
+            width: 160px;
+            height: auto;
+            margin-left: -25px;
+        }
+
+        .cheerleader-right-img {
+            width: 200px;
             height: auto;
         }
 
@@ -204,50 +221,50 @@
         }
 
         .center-logo {
-            width: 380px;
+            width: 340px;
             filter: drop-shadow(0 0 20px rgba(0, 102, 255, 0.6));
         }
 
         .tagline-badge {
             background: linear-gradient(90deg, transparent, #0055ff, transparent);
-            padding: 6px 40px;
+            padding: 6px 30px;
             font-weight: bold;
             letter-spacing: 2px;
-            font-size: 0.95rem;
-            margin-top: -15px;
+            font-size: 0.85rem;
+            margin-top: -10px;
             text-transform: uppercase;
         }
 
         /* Right Ambassador Card */
         .ambassador-card {
-            width: 300px;
+            width: 280px;
             background: linear-gradient(135deg, #0b1d3a, #050b14);
             border: 2px solid #0066ff;
             border-radius: 8px;
-            padding: 20px;
+            padding: 18px;
             text-align: center;
             box-shadow: 0 0 20px rgba(0, 102, 255, 0.4);
         }
 
         .ambassador-card h3 {
-            font-size: 1.3rem;
+            font-size: 1.2rem;
             color: #ffd84a;
-            margin-bottom: 10px;
+            margin-bottom: 8px;
             text-transform: uppercase;
             letter-spacing: 1px;
         }
 
         .ambassador-card p {
-            font-size: 0.85rem;
+            font-size: 0.8rem;
             color: #ccc;
-            line-height: 1.4;
-            margin-bottom: 15px;
+            line-height: 1.35;
+            margin-bottom: 12px;
         }
 
         .btn-ambassador {
             display: inline-block;
             width: 100%;
-            padding: 10px;
+            padding: 9px;
             background: #ffd84a;
             color: #111;
             font-weight: 900;
@@ -397,7 +414,7 @@
 
     <!-- ENTRY SCREEN -->
     <section id="entry-screen">
-        <img src="images/logos/logo1.png" alt="Battle of the Stands" class="entry-logo">
+        <img src="logo1.png" alt="Battle of the Stands" class="entry-logo">
         <button id="enter-button">CLICK TO ENTER</button>
     </section>
 
@@ -428,24 +445,24 @@
             </div>
         </nav>
 
-        <!-- Hero Header -->
+        <!-- Hero Header with All 3 Cheerleaders -->
         <header class="hero-banner">
-            <img src="images/mascots/cheerleader_left.png" alt="Cheerleader" class="cheerleader-side">
+            <div class="hero-left-group">
+                <img src="cheerleader_left.png" alt="Left Cheerleader" class="cheerleader-left-img">
+                <img src="cheerleader_center.png" alt="Center Cheerleader" class="cheerleader-center-img">
+            </div>
             
             <div class="center-branding">
-                <img src="images/logos/logo1.png" alt="Battle of the Stands Logo" class="center-logo">
+                <img src="logo1.png" alt="Battle of the Stands Logo" class="center-logo">
                 <div class="tagline-badge">The Ultimate Fan Showdown!</div>
             </div>
 
-            <!-- Designated Right Box: Recruit Student Ambassadors -->
-            <div class="ambassador-card">
-                <h3>Campus Reps Wanted</h3>
-                <p>Represent your university, lead school rally points, and earn exclusive rewards as an official Student Ambassador.</p>
-                <a href="#" class="btn-ambassador">Apply Today</a>
+            <div class="hero-right-group">
+                <img src="cheerleader_right.png" alt="Right Cheerleader" class="cheerleader-right-img">
             </div>
         </header>
 
-        <!-- Sub Action Bar -->
+        <!-- Sub Action Bar with Ambassador Link Option -->
         <div class="action-bar">
             <button class="action-btn btn-vote">VOTE NOW!</button>
             <button class="action-btn btn-how">HOW IT WORKS</button>
@@ -496,12 +513,11 @@
                 <button class="btn-matchup-vote">VOTE IN THIS MATCHUP!</button>
             </div>
 
-            <!-- Right: Recent Winner -->
-            <div class="panel winner-box">
-                <h4>RECENT WINNER</h4>
-                <img src="images/background/hero-stadium.png" alt="Recent Winner Celebration">
-                <h5 style="text-align: center; color: #ffd84a; font-size: 1rem; margin-top: 5px;">GEORGIA BULLDOGS</h5>
-                <p style="text-align: center; font-size: 0.75rem; color: #88a5cc;">WEEK 6 WINNER</p>
+            <!-- Right Box: Designated Student Ambassador Recruitment -->
+            <div class="ambassador-card">
+                <h3>Campus Reps Wanted</h3>
+                <p>Represent your university, lead school rally points, and earn exclusive rewards as an official Student Ambassador.</p>
+                <a href="#" class="btn-ambassador">Apply Today</a>
             </div>
 
         </div>

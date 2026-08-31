@@ -24,7 +24,7 @@
         #entry-screen {
             position: fixed;
             inset: 0;
-            background: #000 url("entry-background.png") center center / cover no-repeat;
+            background: #000 url("images/background/entry-background.png") center center / cover no-repeat;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -174,7 +174,7 @@
             justify-content: space-between;
             align-items: center;
             padding: 20px 40px 10px;
-            background: url('hero-stadium.png') center/cover no-repeat;
+            background: url('images/background/hero-stadium.png') center/cover no-repeat;
             border-bottom: 3px solid #0055ff;
         }
 
@@ -194,7 +194,6 @@
         .hero-left-group {
             display: flex;
             align-items: flex-end;
-            gap: -15px;
         }
 
         .cheerleader-left-img {
@@ -370,17 +369,29 @@
             margin: 20px 0;
         }
 
-        .team-logo-placeholder {
-            width: 110px;
-            height: 110px;
-            border-radius: 50%;
-            background: #112240;
+        .team-logo-container {
             display: flex;
+            flex-direction: column;
             align-items: center;
-            justify-content: center;
+            gap: 8px;
+        }
+
+        .team-logo-img {
+            width: 100px;
+            height: 100px;
+            object-fit: contain;
+            border-radius: 50%;
+            background: #0d1b2a;
             border: 3px solid #ffd84a;
+            padding: 5px;
+            box-shadow: 0 0 15px rgba(0, 102, 255, 0.4);
+        }
+
+        .team-label {
+            font-size: 0.75rem;
             font-weight: bold;
-            font-size: 0.8rem;
+            color: #fff;
+            letter-spacing: 1px;
         }
 
         .vs-text {
@@ -412,22 +423,18 @@
 </head>
 <body>
 
-    <!-- ENTRY SCREEN -->
     <section id="entry-screen">
-        <img src="logo1.png" alt="Battle of the Stands" class="entry-logo">
+        <img src="images/logos/logo1.png" alt="Battle of the Stands" class="entry-logo">
         <button id="enter-button">CLICK TO ENTER</button>
     </section>
 
-    <!-- INTRO ANIMATION & SKIP -->
     <video id="intro-video" playsinline preload="auto" muted>
         <source src="intro-animation.mp4" type="video/mp4">
     </video>
     <button id="skip-button">SKIP INTRO</button>
 
-    <!-- MAIN HOMEPAGE CONTENT -->
     <div id="main-homepage">
         
-        <!-- Top Navigation -->
         <nav class="topnav">
             <ul class="nav-links">
                 <li><a href="#" class="active">HOME</a></li>
@@ -445,111 +452,4 @@
             </div>
         </nav>
 
-        <!-- Hero Header with All 3 Cheerleaders -->
         <header class="hero-banner">
-            <div class="hero-left-group">
-                <img src="cheerleader_left.png" alt="Left Cheerleader" class="cheerleader-left-img">
-                <img src="cheerleader_center.png" alt="Center Cheerleader" class="cheerleader-center-img">
-            </div>
-            
-            <div class="center-branding">
-                <img src="logo1.png" alt="Battle of the Stands Logo" class="center-logo">
-                <div class="tagline-badge">The Ultimate Fan Showdown!</div>
-            </div>
-
-            <div class="hero-right-group">
-                <img src="cheerleader_right.png" alt="Right Cheerleader" class="cheerleader-right-img">
-            </div>
-        </header>
-
-        <!-- Sub Action Bar with Ambassador Link Option -->
-        <div class="action-bar">
-            <button class="action-btn btn-vote">VOTE NOW!</button>
-            <button class="action-btn btn-how">HOW IT WORKS</button>
-        </div>
-
-        <!-- Content Grid Layout -->
-        <div class="content-grid">
-            
-            <!-- Left: Top 5 Standings -->
-            <div class="panel">
-                <h4>TOP 5 FAN STANDINGS <span>VIEW ALL</span></h4>
-                <div class="standing-item">
-                    <span class="standing-rank">1</span>
-                    <span class="standing-name">Georgia Bulldogs</span>
-                    <span class="standing-votes">128,764<br>VOTES</span>
-                </div>
-                <div class="standing-item">
-                    <span class="standing-rank">2</span>
-                    <span class="standing-name">Ohio State Buckeyes</span>
-                    <span class="standing-votes">115,432<br>VOTES</span>
-                </div>
-                <div class="standing-item">
-                    <span class="standing-rank">3</span>
-                    <span class="standing-name">Michigan Wolverines</span>
-                    <span class="standing-votes">101,876<br>VOTES</span>
-                </div>
-                <div class="standing-item">
-                    <span class="standing-rank">4</span>
-                    <span class="standing-name">Oregon Ducks</span>
-                    <span class="standing-votes">89,213<br>VOTES</span>
-                </div>
-                <div class="standing-item">
-                    <span class="standing-rank">5</span>
-                    <span class="standing-name">Penn State Nittany Lions</span>
-                    <span class="standing-votes">76,891<br>VOTES</span>
-                </div>
-            </div>
-
-            <!-- Center: Featured Matchup -->
-            <div class="matchup-box">
-                <h3 style="color: #ffd84a; letter-spacing: 1px;">FEATURED MATCHUP</h3>
-                <div class="matchup-graphic">
-                    <div class="team-logo-placeholder">LSU TIGERS</div>
-                    <div class="vs-text">VS</div>
-                    <div class="team-logo-placeholder">CLEMSON</div>
-                </div>
-                <p style="font-size: 0.8rem; color: #88a5cc;">VOTING ENDS FRIDAY AT MIDNIGHT!</p>
-                <button class="btn-matchup-vote">VOTE IN THIS MATCHUP!</button>
-            </div>
-
-            <!-- Right Box: Designated Student Ambassador Recruitment -->
-            <div class="ambassador-card">
-                <h3>Campus Reps Wanted</h3>
-                <p>Represent your university, lead school rally points, and earn exclusive rewards as an official Student Ambassador.</p>
-                <a href="#" class="btn-ambassador">Apply Today</a>
-            </div>
-
-        </div>
-
-    </div>
-
-    <script>
-        const entryScreen = document.getElementById("entry-screen");
-        const enterButton = document.getElementById("enter-button");
-        const introVideo = document.getElementById("intro-video");
-        const skipButton = document.getElementById("skip-button");
-        const mainHomepage = document.getElementById("main-homepage");
-
-        enterButton.addEventListener("click", function () {
-            entryScreen.style.opacity = "0";
-            setTimeout(function () {
-                entryScreen.style.display = "none";
-                introVideo.style.display = "block";
-                skipButton.style.display = "block";
-                introVideo.currentTime = 0;
-                introVideo.play();
-            }, 800);
-        });
-
-        function finishIntro() {
-            introVideo.style.display = "none";
-            skipButton.style.display = "none";
-            mainHomepage.style.display = "block";
-        }
-
-        introVideo.addEventListener("ended", finishIntro);
-        skipButton.addEventListener("click", finishIntro);
-    </script>
-</body>
-</html>
